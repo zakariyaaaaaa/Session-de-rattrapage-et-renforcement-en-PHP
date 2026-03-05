@@ -1,33 +1,50 @@
 <?php
+
 $students = [
-    ["nom"=>"Ahmed", "prenom"=>"Ali", "notes"=>[12,15,18]],
-    ["nom"=>"Sara", "prenom"=>"Yasmine", "notes"=>[9,14,10]],
-    ["nom"=>"Omar", "prenom"=>"Karim", "notes"=>[16,17,15]],
+    [
+    "nom" => "Alami",
+    "prenom" => "Ali",
+    "notes" => [105, 15, 14]
+    ],
+
+    [
+    "nom" => "Bakkali",
+    "prenom" => "Sara",
+    "notes" => [10, 9, 13]
+    ],
+
+    [
+    "nom" => "Alaoui",
+    "prenom" => "Omar",
+    "notes" => [16, 18, 17]
+    ]
 ];
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
- <meta charset="UTF-8">
- <title>Tableau des étudiants</title>
+    <title>Students Table</title>
 </head>
 <body>
+
+<h2>Students Notes</h2>
 
 <table border="1">
 <tr>
     <th>Nom</th>
-    <th>Prenom</th>
-    <th>Note 1</th>
-    <th>Note 2</th>
-    <th>Note 3</th>
+    <th>Prénom</th>
+    <th>Notes</th>
     <th>Moyenne</th>
 </tr>
 
 <?php
 foreach($students as $student){
-    echo "<tr>";
 
+    $moyenne = array_sum($student["notes"]) / count($student["notes"]);
+
+    echo "<tr>";
     echo "<td>".$student["nom"]."</td>";
     echo "<td>".$student["prenom"]."</td>";
 
@@ -35,9 +52,7 @@ foreach($students as $student){
     echo "<td>".$student["notes"][1]."</td>";
     echo "<td>".$student["notes"][2]."</td>";
 
-    $moyenne = array_sum($student["notes"]) / count($student["notes"]);
     echo "<td>".$moyenne."</td>";
-
     echo "</tr>";
 }
 ?>
@@ -45,4 +60,4 @@ foreach($students as $student){
 </table>
 
 </body>
-</html>
+</html> 
